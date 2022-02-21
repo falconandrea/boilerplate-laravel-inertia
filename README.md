@@ -9,7 +9,13 @@
 
 # Info about the project
 
-This is a boilerplate for start new projects with Laravel, Sail, InertiaJS (with Vue3) and TailwindCSS.
+This is a boilerplate for start new projects with Laravel 9, Sail, InertiaJS (with Vue3) and TailwindCSS.
+
+## InertiaJS Packages installed
+
+-   Default layout for every page
+-   SEO component [Title & Meta](https://inertiajs.com/title-and-meta)
+-   SSR [Server Side Rendering](https://inertiajs.com/server-side-rendering#top)
 
 ## How to run (with Sail)
 
