@@ -2,7 +2,7 @@ import { createSSRApp, h } from 'vue'
 import { renderToString } from '@vue/server-renderer'
 import { createInertiaApp, Link } from '@inertiajs/inertia-vue3'
 import createServer from '@inertiajs/server'
-import Layout from './Layout/App.vue'
+import Layout from '@/Layout/App.vue'
 
 createServer((page) => createInertiaApp({
   page,

@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import AppHead from '../Components/AppHead.vue'
+import AppHead from '@/Components/AppHead.vue'
 
 export default {
     components: {
