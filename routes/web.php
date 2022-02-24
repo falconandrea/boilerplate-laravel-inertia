@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -21,4 +22,8 @@ Route::get('/', function () {
             'description' => "This is the homepage"
         ]
     ]);
-});
+})->name('home');
+
+Route::get('/login', [UserController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [UserController::class, 'login'])->name('login.store')->middleware('guest');
+Route::delete('logout', [UserController::class, 'logout'])->name('logout')->middleware('auth');
