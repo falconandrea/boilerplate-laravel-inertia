@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,16 @@ class UserController extends Controller
             'seo' => [
                 'title' => 'Login',
                 'description' => 'This is the login page'
+            ]
+        ]);
+    }
+
+    public function show_register()
+    {
+        return Inertia::render('Auth/Register', [
+            'seo' => [
+                'title' => 'Register',
+                'description' => 'This is the register page'
             ]
         ]);
     }
@@ -47,5 +58,20 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    public function register(Request $request)
+    {
+        $data = $request->validate([
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8',
+            'name' => 'required|string'
+        ]);
+
+        $user = User::create($data);
+
+        auth()->login($user);
+
+        return redirect('/')->with('success', "Account successfully registered.");
     }
 }
