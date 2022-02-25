@@ -23,7 +23,7 @@ class UserController extends Controller
 
     public function show_register()
     {
-        return Inertia::render('Auth/Register', [
+        return Inertia::render('Auth/Registration', [
             'seo' => [
                 'title' => 'Register',
                 'description' => 'This is the register page'
