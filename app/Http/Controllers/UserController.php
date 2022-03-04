@@ -7,7 +7,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
@@ -41,7 +40,7 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/');
+            return redirect('/dashboard');
         }
 
         return back()->withErrors([

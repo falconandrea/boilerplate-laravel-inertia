@@ -2,9 +2,9 @@
     <main>
         <header class="bg-blue-500 p-2">
             <Link class="text-white underline mr-2" href="/">Home</Link>
+            <Link v-if="user" class="text-white underline mr-2" href="/dashboard">Dashboard</Link>
             <Link v-if="!user" class="text-white underline mr-2" href="/login">Login</Link>
             <Link v-if="!user" class="text-white underline mr-2" href="/register">Register</Link>
-            <Link v-if="user" method="delete" as="button" class="text-white underline mr-2" href="/logout">Logout</Link>
         </header>
         <div class="content">
             <slot />

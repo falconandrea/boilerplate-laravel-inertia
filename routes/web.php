@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,8 +25,13 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
+// Login & Register
 Route::get('/login', [UserController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [UserController::class, 'login'])->name('login.store')->middleware('guest');
 Route::get('/register', [UserController::class, 'show_register'])->name('register')->middleware('guest');
 Route::post('/register', [UserController::class, 'register'])->name('register.store')->middleware('guest');
 Route::delete('logout', [UserController::class, 'logout'])->name('logout')->middleware('auth');
+
+
+// Dashboard
+Route:: get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth');
