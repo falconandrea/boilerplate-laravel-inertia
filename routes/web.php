@@ -33,6 +33,9 @@ Route::get('/register', [AuthController::class, 'show_register'])->name('registe
 Route::post('/register', [AuthController::class, 'register'])->name('register.store')->middleware('guest');
 Route::delete('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
-
-// Dashboard
-Route:: get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth');
+// Backend
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('dashboard')->name('dashboard.')->group(function () {
+        Route:: get('/', [DashboardController::class, 'index'])->name('index');
+    });
+});
