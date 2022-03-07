@@ -15,6 +15,9 @@
                     <Link class="flex items-center mt-4 py-2 px-6 bg-opacity-25 text-gray-100" :href="route('dashboard.index')" :class="{ 'bg-gray-700': $page.url === ('/dashboard') }">
                         <span class="mx-3">Dashboard</span>
                     </Link>
+                    <Link class="flex items-center mt-4 py-2 px-6 bg-opacity-25 text-gray-100" :href="route('dashboard.users.index')" :class="{ 'bg-gray-700': $page.url.startsWith('/dashboard/users') }">
+                        <span class="mx-3">Users</span>
+                    </Link>
                 </nav>
             </div>
             <div class="flex-1 flex flex-col overflow-hidden">

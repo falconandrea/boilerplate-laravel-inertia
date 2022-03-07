@@ -37,5 +37,6 @@ Route::delete('logout', [AuthController::class, 'logout'])->name('logout')->midd
 Route::middleware(['auth'])->group(function () {
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
         Route:: get('/', [DashboardController::class, 'index'])->name('index');
+        Route::get('/users', [UserController::class, 'index'])->name('users.index');
     });
 });
