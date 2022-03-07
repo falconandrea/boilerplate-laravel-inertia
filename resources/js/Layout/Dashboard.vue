@@ -12,13 +12,13 @@
                 </div>
 
                 <nav class="mt-10">
-                    <Link class="flex items-center mt-4 py-2 px-6 bg-gray-700 bg-opacity-25 text-gray-100" href="/dashboard">
+                    <Link class="flex items-center mt-4 py-2 px-6 bg-opacity-25 text-gray-100" :href="route('dashboard.index')" :class="{ 'bg-gray-700': $page.url === ('/dashboard') }">
                         <span class="mx-3">Dashboard</span>
                     </Link>
                 </nav>
             </div>
             <div class="flex-1 flex flex-col overflow-hidden">
-                <header class="flex justify-between items-center py-4 px-6 bg-white border-b-4 border-indigo-600">
+                <header class="flex justify-between items-center py-4 px-6 bg-white border-b-4">
                     <small class="hidden lg:block">Welcome, {{ user.name }}</small>
 
                     <div class="flex items-center">
