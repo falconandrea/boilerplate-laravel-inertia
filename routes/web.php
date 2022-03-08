@@ -38,5 +38,6 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
         Route:: get('/', [DashboardController::class, 'index'])->name('index');
         Route::get('/users', [UserController::class, 'index'])->name('users.index');
+        Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
     });
 });
