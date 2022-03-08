@@ -53,7 +53,8 @@
                     </div>
                 </header>
                 <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
-                    <div class="container mx-auto px-6 py-8">
+                    <div class="container relative mx-auto px-6 py-8">
+                        <FlashMessage />
                         <slot />
                     </div>
                 </main>
@@ -65,11 +66,12 @@
 <script>
 import { computed, ref } from 'vue'
 import { usePage } from '@inertiajs/inertia-vue3'
-import AppHead from '@/Components/AppHead.vue'
+import AppHead from '@/Shared/AppHead.vue'
+import FlashMessage from '@/Shared/FlashMessage.vue'
 
 export default {
     components: {
-        AppHead
+        AppHead, FlashMessage
     },
     setup() {
         const user = computed(() => usePage().props.value.auth.user)
