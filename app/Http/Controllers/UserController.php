@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -17,7 +16,7 @@ class UserController extends Controller
             ->paginate(5, ['id', 'name', 'email'])
             ->withQueryString()
             ->through(function ($user, $key) {
-                $user['can_delete'] = true;
+                $user['can_delete'] = Auth::id() != $user->id;
 
                 return $user;
             });
