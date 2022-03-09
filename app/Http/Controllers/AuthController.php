@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class AuthController extends Controller
 {
@@ -40,7 +41,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/dashboard');
+            return Redirect::route('dashboard.index');
         }
 
         return back()->withErrors([
@@ -56,7 +57,7 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return Redirect::route('home');
     }
 
     public function register(Request $request)
@@ -71,6 +72,6 @@ class AuthController extends Controller
 
         auth()->login($user);
 
-        return redirect('/')->with('success', "Account successfully registered.");
+        return Redirect::route('home')->with('success', "Account successfully registered.");
     }
 }
