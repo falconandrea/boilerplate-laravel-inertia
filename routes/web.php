@@ -38,6 +38,9 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
         Route:: get('/', [DashboardController::class, 'index'])->name('index');
         Route::get('/users', [UserController::class, 'index'])->name('users.index');
+        Route::post('/users', [UserController::class, 'store'])->name('users.store');
+        Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+        Route::get('/users/{user}', [UserController::class, 'edit'])->name('users.edit');
         Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
     });
 });

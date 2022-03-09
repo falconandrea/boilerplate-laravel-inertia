@@ -1,5 +1,8 @@
 <template>
-    <h3 class="text-gray-700 text-3xl font-medium">Users</h3>
+    <div class="flex justify-between items-center">
+        <h3 class="text-gray-700 text-3xl font-medium">Users</h3>
+        <Link :href="route('dashboard.users.create')" class="bg-blue-500 rounded px-2 py-1 text-sm text-white hover:bg-blue-600 ml-4 h-8 inline-flex items-center">Create new</Link>
+    </div>
 
     <div class="flex flex-col mt-8">
         <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
@@ -31,9 +34,9 @@
                                                 {{ user.email }}
                                             </td>
                                             <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                                <Link :href="route('dashboard.users.show', user.id)" class="text-blue-600 dark:text-blue-500 hover:underline mr-4">Edit</Link>
+                                                <Link :href="route('dashboard.users.edit', user.id)" class="bg-blue-500 rounded px-2 py-1 text-sm text-white hover:bg-blue-600 ml-4 h-8 inline-flex items-center">Edit</Link>
 
-                                                <Link v-if="user.can_delete" :href="route('dashboard.users.destroy', user.id)"  method="delete" as="button" class="text-blue-600 dark:text-blue-500 hover:underline">Delete</Link>
+                                                <Link v-if="user.can_delete" :href="route('dashboard.users.destroy', user.id)"  method="delete" as="button" class="bg-blue-500 rounded px-2 py-1 text-sm text-white hover:bg-blue-600 ml-4 h-8 inline-flex items-center">Delete</Link>
                                             </td>
                                         </tr>
                                     </tbody>
