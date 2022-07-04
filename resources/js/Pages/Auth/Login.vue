@@ -23,7 +23,7 @@
 <script>
 import { reactive } from 'vue'
 import { Inertia } from '@inertiajs/inertia'
-import AlertMessage from '@/Shared/AlertMessage'
+import AlertMessage from '@/Shared/AlertMessage.vue'
 export default {
     props: {
         errors: Object,
